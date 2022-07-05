@@ -1,0 +1,24 @@
+name: Test
+
+on: push
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        working-directory: ./stdin-test
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions-rs/toolchain@v1
+      with:
+        profile: minimal
+        toolchain: stable
+        override: true
+
+    - run: cargo build
+
+    - run: cat Cargo.toml | ./target/debug/stdin-test.exe
