@@ -2,8 +2,8 @@ name: Test
 
 on:
   push:
-    paths:
-      - 'stdin-test/**'
+    # paths:
+    #   - 'stdin-test/**'
 
 jobs:
   test:
