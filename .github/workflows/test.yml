@@ -1,6 +1,9 @@
 name: Test
 
-on: push
+on:
+  push:
+    paths:
+      - 'stdin-test/**'
 
 jobs:
   test:
@@ -21,4 +24,4 @@ jobs:
 
     - run: cargo build
 
-    - run: cat Cargo.toml | ./target/debug/stdin-test.exe
+    - run: bash test.sh
